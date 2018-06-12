@@ -28,16 +28,16 @@ Web: @Coco Lin @mickey @dustfun /@penguinrun /  @curt /  @Arel /  @日安
 ---
 ## 作品 Demo
 
-- Web
+### Web
 
 ![Alt text](card.gif)
 ---
 
-- Android
+### Android
 
 ![Alt text](android.gif)
 ---
 
-- iOS
+### iOS
 
 ![Alt text](iOSDemo.gif)
