@@ -3,9 +3,10 @@
 請根據上面的影片分別在 Web / iOS / Android 三個平台上模仿做一個。
 
 參與者共 16 位：
-iOS: @Jeremy / @菘駿 / @Morris / @Iris Tsai / @ethan / 
-Android: @Ted / @Henry / @York / @James
-Web: @Coco Lin @mickey @dustfun /@penguinrun /  @curt /  @Arel /  @日安
+
+iOS: Jeremy / 菘駿 / Morris / Iris Tsai / ethan / 
+Android: Ted / Henry / York / James
+Web: Coco Lin / mickey / dustfun / penguinrun / curt / Arel / 日安
 
 ### Team C: Arel / Ted / Iris / Json / Morris
 
