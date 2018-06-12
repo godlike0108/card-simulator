@@ -10,14 +10,18 @@ import UIKit
 import GameplayKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var btnOutlet: UIButton!
+    @IBOutlet weak var btnLabel: UILabel!
+    @IBOutlet weak var cardBackground: UIImageView!
     @IBOutlet weak var startCard: UIImageView!
-    
+
     @IBOutlet weak var flashView: UIImageView!
     @IBOutlet weak var coverView: UIView!
     @IBOutlet weak var cardCollectionView: UICollectionView!
+    var cardBackgroundOptions = ["red","blue","gray","green","red","blue","gray","green","gray","green"]
     var cardOptions = ["0","1","2","3","4","5","6","7","8","9"]
     let randomCardNumber = GKRandomDistribution(lowestValue: 0, highestValue: 9)
-    var runCardNumber = 10
+//    let randomColor = GKRandomDistribution(lowestValue: 0, highestValue: 3)
     @IBOutlet weak var myGifView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,25 +33,27 @@ class ViewController: UIViewController {
 
     }
     @IBAction func runPressed(_ sender: UIButton) {
-        runCardNumber = randomCardNumber.nextInt()
         cardCollectionView.reloadData()
-        let point = CGPoint(x: 9 * 108, y: 0)
+        let point = CGPoint(x: 49 * 108, y: 0)
         cardCollectionView.setContentOffset(point, animated: true)
         coverView.layer.removeAllAnimations()
         startCard.isHidden = true
         myGifView.isHidden = true
-        print(runCardNumber)
+        btnLabel.text = "Hide"
+        btnOutlet.isEnabled = false
     }
 }
 
 extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 50
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CardCell
+        cell.cardGif.loadGif(name: "glow")
         cell.cardImageView.image = UIImage(named: cardOptions[randomCardNumber.nextInt()])
+        cell.cardBackground.image = UIImage(named:cardBackgroundOptions[randomCardNumber.nextInt()])
         cell.backgroundColor = .black
         return cell
     }
@@ -65,14 +71,12 @@ extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UIC
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset.x)
         let x = scrollView.contentOffset.x
-        if x == 9 * 108 {
+        if x == 49 * 108 {
             flashView.isHidden = false
-            UIView.animate(withDuration: 2) {
+            UIView.animate(withDuration: 1) {
                 self.flashView.layer.opacity = 0
             }
         }
     }
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-    }
-    
+
 }

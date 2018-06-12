@@ -11,5 +11,7 @@ import UIKit
 
 class CardCell:UICollectionViewCell{
     
+    @IBOutlet weak var cardGif: UIImageView!
+    @IBOutlet weak var cardBackground: UIImageView!
     @IBOutlet weak var cardImageView: UIImageView!
 }
