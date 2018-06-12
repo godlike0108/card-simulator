@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
     @IBAction func runPressed(_ sender: UIButton) {
         cardCollectionView.reloadData()
-        let point = CGPoint(x: 49 * 108, y: 0)
+        let point = CGPoint(x: 19 * 108, y: 0)
         cardCollectionView.setContentOffset(point, animated: true)
         coverView.layer.removeAllAnimations()
         startCard.isHidden = true
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return 20
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CardCell
@@ -71,7 +71,7 @@ extension ViewController:UICollectionViewDataSource,UICollectionViewDelegate,UIC
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         print(scrollView.contentOffset.x)
         let x = scrollView.contentOffset.x
-        if x == 49 * 108 {
+        if x == 19 * 108 {
             flashView.isHidden = false
             UIView.animate(withDuration: 1) {
                 self.flashView.layer.opacity = 0
